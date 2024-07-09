@@ -14,12 +14,6 @@ namespace NightClub.DataAccess
         {
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=NightClub.ConnectionResiliency;Trusted_Connection=True;");
-
-        //}
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<IdentityCard>()
