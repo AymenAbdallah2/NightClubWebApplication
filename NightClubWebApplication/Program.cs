@@ -1,5 +1,9 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using NightClub.DataAccess;
+using NightClub.Interfaces;
+using NightClub.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,10 @@ builder.Services.AddSwaggerGen();
 // Context
 var connectionString = builder.Configuration.GetConnectionString("NightClubDB");
 builder.Services.AddDbContext<NightClubContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IValidator<Member>, MemberValidator>();
+builder.Services.AddScoped<IMemberService, MemberService>();
+
 
 var app = builder.Build();
 
